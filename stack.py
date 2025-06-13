@@ -3,6 +3,10 @@ def create_stack():
     return stack
 
 
+def insert(stack, item, pos):
+    pass
+
+
 def isEmpty(stack):
 
     return len(stack) == 0
