@@ -1,36 +1,38 @@
-def create_stack():
-    stack = []
-    return stack
+class Stack:
+    def __init__(self):
+        self.stack = []
 
 
-def insert(stack, item, pos):
-    pass
+    def isEmpty(self):
+        return len(self.stack) == 0
 
 
-def isEmpty(stack):
-
-    return len(stack) == 0
-
-
-def push(stack, item):
-    stack.append(item)
-    print("pushed : " + item)
+    def insert(self, item, pos):
+        pass
 
 
-def pop(stack):
-    if (isEmpty(stack)):
-        return "UNDERFLOW"
-
-    return stack.pop()
+    def push(self, item):
+        self.stack.append(item)
+        print("pushed : " + item)
 
 
-stack = create_stack()
-push(stack, str("A"))
-push(stack, str("B"))
-push(stack, str("C"))
-push(stack, str("D"))
+    def pop(self):
+        if (self.isEmpty()):
+            return "UNDERFLOW"
 
-print("popped : " + pop(stack))
-print("current stack " + str(stack))
-print("popped : " + pop(stack))
-print("current stack " + str(stack))
+        return self.stack.pop()
+
+    def __str__(self) -> str:
+        return str(self.stack)
+
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push("A")
+    stack.push("B")
+    stack.push("C")
+    stack.push("D")
+
+    print("popped : " + stack.pop())
+    print("current stack " + str(stack))
+    print("popped : " + stack.pop())
+    print("current stack " + str(stack))
