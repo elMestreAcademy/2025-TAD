@@ -1,25 +1,13 @@
-class Stack:
-    def __init__(self):
-        self.stack = []
+from tad import Tad
 
-    def isEmpty(self):
-        return len(self.stack) == 0
 
-    def push(self, item):
-        self.stack.append(item)
-
-    def pop(self):
-        if (self.isEmpty()):
-            raise OverflowError
-
-        return self.stack.pop()
-
-    def __str__(self) -> str:
-        return str(self.stack)
+class Stack(Tad):
+    pass
 
 
 if __name__ == "__main__":
     stack = Stack()
+
     stack.push("A")
     stack.push("B")
     stack.push("C")
@@ -29,10 +17,10 @@ if __name__ == "__main__":
     print("current stack " + str(stack))
     print("popped : " + stack.pop())
     print("current stack " + str(stack))
+
     print(stack.pop())
     print(stack.pop())
-    print(stack.pop())
-    print(stack.pop())
-    print(stack.pop())
-    print(stack.pop())
-    print(stack.pop())
+    try:
+        print(stack.pop())  # <--
+    except OverflowError:
+        print("ERROR No podemos seguir popeando, el stack está vacío")

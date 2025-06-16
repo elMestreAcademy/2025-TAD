@@ -1,21 +1,15 @@
-class Queue:
-    def __init__(self):
-        self.queue = []
+from tad import Tad
 
-    def isEmpty(self):
-        return len(self.queue) == 0
 
+class Queue(Tad):
     def enqueue(self, item):
-        self.queue.append(item)
+        super().push(item)
 
     def dequeue(self):
-        if (self.isEmpty()):
+        if self.isEmpty():
             raise OverflowError
 
-        return self.queue.pop(0)
-
-    def __str__(self) -> str:
-        return str(self.queue)
+        return self.buffer.pop(0)
 
 
 if __name__ == "__main__":
@@ -26,16 +20,17 @@ if __name__ == "__main__":
     q.enqueue(4)
     q.enqueue(5)
 
-    q.display()
+    print(q)
 
     q.dequeue()
     q.dequeue()
     q.dequeue()
     q.dequeue()
     q.dequeue()
+    try:
+        print(q.dequeue())
+    except OverflowError:
+        print("ERROR No podemos seguir desencolando, la cola está vacía")
+        print("Y AHORA vamos a provocar el error adrede")
     q.dequeue()
-    q.dequeue()
-    q.dequeue()
-
-    print("After removing an element")
-    q.display()
+    print(q)
